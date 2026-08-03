@@ -26,7 +26,7 @@ import NavToggle from "./NavToggle.astro";
 
 <style>
   header {
-    align-items: center;
+    align-items: stretch;
     background-color: transparent;
     display: flex;
     justify-content: space-between;
@@ -45,11 +45,23 @@ import NavToggle from "./NavToggle.astro";
   }
 
   @media (min-width: 768px) {
+    nav,
     .nav__list {
-      align-items: center;
+      align-items: stretch;
       display: flex;
       flex-direction: row;
       gap: clamp(2rem, 1.4286rem + 1.1905vw, 2.5rem);
+    }
+
+    .nav__item {
+      align-items: center;
+      border-top: 4px solid transparent;
+      display: flex;
+      transition: border-color 0.3s;
+    }
+
+    .nav__item:hover {
+      border-color: var(--color-accent);
     }
   }
 </style>
