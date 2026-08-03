@@ -1,0 +1,18 @@
+---
+export function getStaticPaths() {
+  return [
+    { params: { planet: "Mercury" } },
+    { params: { planet: "Venus" } },
+    { params: { planet: "Earth" } },
+    { params: { planet: "Mars" } },
+    { params: { planet: "Jupiter" } },
+    { params: { planet: "Saturn" } },
+    { params: { planet: "Uranus" } },
+    { params: { planet: "Neptune" } },
+  ];
+}
+
+const { planet } = Astro.params;
+---
+
+<h1>{planet}</h1>
