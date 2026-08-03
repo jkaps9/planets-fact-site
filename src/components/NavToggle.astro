@@ -1,0 +1,28 @@
+---
+import { Icon } from "astro-icon/components";
+---
+
+<button
+  class="nav__toggle"
+  aria-expanded="false"
+  aria-controls="main-menu"
+  aria-label="Open navigation menu"
+  type="button"
+>
+  <Icon
+    name="icon-hamburger"
+    aria-hidden="true"
+  />
+  <span class="sr-only">Toggle Nav Menu</span>
+</button>
+
+<script>
+  const navToggle = document.querySelector(".nav__toggle");
+
+  if (navToggle) {
+    navToggle.addEventListener("click", () => {
+      const isExpanded = navToggle.getAttribute("aria-expanded") === "true";
+      navToggle.setAttribute("aria-expanded", `${!isExpanded}`);
+    });
+  }
+</script>
