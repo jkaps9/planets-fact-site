@@ -1,18 +1,21 @@
 ---
+import PlanetLayout from "@layouts/PlanetLayout.astro";
 export function getStaticPaths() {
   return [
-    { params: { planet: "Mercury" } },
-    { params: { planet: "Venus" } },
-    { params: { planet: "Earth" } },
-    { params: { planet: "Mars" } },
-    { params: { planet: "Jupiter" } },
-    { params: { planet: "Saturn" } },
-    { params: { planet: "Uranus" } },
-    { params: { planet: "Neptune" } },
+    { params: { planet: "mercury" } },
+    { params: { planet: "venus" } },
+    { params: { planet: "earth" } },
+    { params: { planet: "mars" } },
+    { params: { planet: "jupiter" } },
+    { params: { planet: "saturn" } },
+    { params: { planet: "uranus" } },
+    { params: { planet: "neptune" } },
   ];
 }
 
 const { planet } = Astro.params;
 ---
 
-<h1>{planet}</h1>
+<PlanetLayout pageTitle={planet}>
+  <h1>{planet}</h1>
+</PlanetLayout>
