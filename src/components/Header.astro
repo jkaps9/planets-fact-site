@@ -1,0 +1,25 @@
+---
+import navData from "@data/navData.json";
+import NavToggle from "./NavToggle.astro";
+---
+
+<header>
+  <div class="logo">
+    <a href="/">The Planets</a>
+  </div>
+  <nav
+    id="main-menu"
+    aria-label="Main navigation"
+  >
+    <ul class="nav__list">
+      {
+        navData.map((navItem) => (
+          <li class:list="nav__item">
+            <a href={navItem.url}>{navItem.key}</a>
+          </li>
+        ))
+      }
+    </ul>
+  </nav>
+  <NavToggle />
+</header>
