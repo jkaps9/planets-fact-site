@@ -1,0 +1,42 @@
+[
+  {
+    "key": "Mercury",
+    "url": "/mercury",
+    "children": []
+  },
+  {
+    "key": "Venus",
+    "url": "/venus",
+    "children": []
+  },
+  {
+    "key": "Earth",
+    "url": "/earth",
+    "children": []
+  },
+  {
+    "key": "Mars",
+    "url": "/mars",
+    "children": []
+  },
+  {
+    "key": "Jupiter",
+    "url": "/jupiter",
+    "children": []
+  },
+  {
+    "key": "Saturn",
+    "url": "/saturn",
+    "children": []
+  },
+  {
+    "key": "Uranus",
+    "url": "/uranus",
+    "children": []
+  },
+  {
+    "key": "Neptune",
+    "url": "/neptune",
+    "children": []
+  }
+]
