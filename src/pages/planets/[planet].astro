@@ -1,6 +1,6 @@
 ---
 import PlanetLayout from "@layouts/PlanetLayout.astro";
-
+import { Icon } from "astro-icon/components";
 import planets from "@data/planets.json";
 
 export async function getStaticPaths() {
@@ -16,5 +16,69 @@ const { planet } = Astro.props;
 ---
 
 <PlanetLayout pageTitle={planet.name}>
-  <h1>{planet.name}</h1>
+  <div class="planet__image">
+    <img
+      src={planet.images.planet.replace("./assets/", "../assets/images/")}
+      alt=""
+      aria-hidden="true"
+    />
+    <img
+      src={planet.images.internal.replace("./assets/", "../assets/images/")}
+      alt=""
+      aria-hidden="true"
+    />
+    <img
+      src={planet.images.geology.replace("./assets/", "../assets/images/")}
+      alt=""
+      aria-hidden="true"
+    />
+  </div>
+  <section class="details">
+    <h1>{planet.name}</h1>
+    <div class="overview">
+      <p>{planet.overview.content}</p>
+      <p>
+        Source: <a href={planet.overview.source}>
+          Wikipedia
+          <Icon
+            name="icon-source"
+            aria-hidden="true"
+          />
+        </a>
+      </p>
+    </div>
+
+    <div class="structure">
+      <p>{planet.structure.content}</p>
+      <p>
+        Source: <a href={planet.structure.source}>
+          Wikipedia
+          <Icon
+            name="icon-source"
+            aria-hidden="true"
+          />
+        </a>
+      </p>
+    </div>
+
+    <div class="geology">
+      <p>{planet.geology.content}</p>
+      <p>
+        Source: <a href={planet.geology.source}>
+          Wikipedia
+          <Icon
+            name="icon-source"
+            aria-hidden="true"
+          />
+        </a>
+      </p>
+    </div>
+  </section>
 </PlanetLayout>
+
+<style>
+  img {
+    height: 200px;
+    width: 200px;
+  }
+</style>
