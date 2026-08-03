@@ -1,42 +1,42 @@
 [
   {
     "key": "Mercury",
-    "url": "/mercury",
+    "url": "/planets/mercury",
     "children": []
   },
   {
     "key": "Venus",
-    "url": "/venus",
+    "url": "/planets/venus",
     "children": []
   },
   {
     "key": "Earth",
-    "url": "/earth",
+    "url": "/planets/earth",
     "children": []
   },
   {
     "key": "Mars",
-    "url": "/mars",
+    "url": "/planets/mars",
     "children": []
   },
   {
     "key": "Jupiter",
-    "url": "/jupiter",
+    "url": "/planets/jupiter",
     "children": []
   },
   {
     "key": "Saturn",
-    "url": "/saturn",
+    "url": "/planets/saturn",
     "children": []
   },
   {
     "key": "Uranus",
-    "url": "/uranus",
+    "url": "/planets/uranus",
     "children": []
   },
   {
     "key": "Neptune",
-    "url": "/neptune",
+    "url": "/planets/neptune",
     "children": []
   }
 ]
