@@ -1,0 +1,168 @@
+:root {
+  --colors-neutral-0: #ffffff;
+  --colors-neutral-300: #d8d8d8;
+  --colors-neutral-950: #000000;
+
+  --colors-navy-950: #070724;
+  --colors-teal-400: #1ec1a2;
+  --colors-purple-600: #6d2ed5;
+  --colors-bronze-700: #b87d43;
+  --colors-red-500: #d83a34;
+  --colors-orange-600: #d14c32;
+  --colors-amber-400: #eda249;
+  --colors-blue-600: #2d68f0;
+  --colors-sky-400: #419ebb;
+
+  --colors-aqua-50: #def4fc;
+  --colors-aqua-100: #b1d5e2;
+
+  --spacing-0: 0;
+  --spacing-050: 4;
+  --spacing-075: 6;
+  --spacing-100: 8;
+  --spacing-125: 10;
+  --spacing-200: 16;
+  --spacing-250: 20;
+  --spacing-300: 24;
+  --spacing-375: 30;
+  --spacing-400: 32;
+  --spacing-500: 40;
+  --spacing-600: 48;
+
+  --corner-radius-0: 0;
+
+  /* Colors */
+  --color-primary: var(--colors-sky-400);
+  --color-primary-hover: var(--colors-neutral-300);
+  --color-accent: var(--colors-blue-500);
+  --color-background: var(--colors-navy-950);
+
+  --color-background-surface: transparent;
+  --color-header-text: var(--colors-neutral-0);
+  --color-body-text: var(--colors-neutral-0);
+  --color-text-on-primary: var(--colors-neutral-0);
+
+  /* Typography */
+  --font-heading: var(--font-antonio);
+  --font-body: var(--font-spartan);
+
+  /* Layout */
+  --content-max-width: 1110px;
+  --page-padding: 0 clamp(1.5rem, 1.3239rem + 0.7512vw, 2rem);
+
+  /* inline min 24px max 32px*/
+
+  /* Radius */
+  /* --radius-sm: #{$radius-sm};
+  --radius-md: #{$radius-md};
+  --radius-lg: #{$radius-lg};
+  --radius-pill: #{$radius-pill}; */
+
+  /* Shadows */
+  /* --shadow-sm: #{$shadow-sm};
+  --shadow-md: #{$shadow-md};
+  --shadow-lg: #{$shadow-lg}; */
+
+  /* Transition */
+  /* --transition: #{$transition-base};
+  --transition-slow: #{$transition-slow}; */
+}
+
+/*~ ~~~~~~~~~~~~~~~~~~~~~~~~~~ ~~>
+<~~           Reset            ~~>
+<~~ ~~~~~~~~~~~~~~~~~~~~~~~~~~ ~*/
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* 2. Remove default margin */
+*:not(dialog) {
+  margin: 0;
+}
+
+/* 3. Enable keyword animations */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    interpolate-size: allow-keywords;
+    overflow-x: hidden;
+  }
+}
+
+body {
+  background-color: var(--color-background);
+  color: var(--color-body-text);
+  font-family: var(--font-body);
+  padding: var(--page-padding);
+  /* 5. Improve text rendering */
+  -webkit-font-smoothing: antialiased;
+}
+
+/* 6. Improve media defaults */
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  height: auto;
+  max-width: 100%;
+}
+
+/* 7. Inherit fonts for form controls */
+input,
+button,
+select,
+textarea {
+  font: inherit;
+}
+
+/* 8. Avoid text overflows */
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+/* 9. Improve line wrapping */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--color-header-text);
+  font-family: var(--font-heading);
+  font-weight: 700;
+  line-height: 1.2;
+  text-wrap: balance;
+}
+
+p {
+  text-wrap: pretty;
+}
+
+/*
+  10. Create a root stacking context
+*/
+#root,
+#__next {
+  isolation: isolate;
+}
+
+main {
+  margin: 0 auto;
+  max-width: var(--content-max-width);
+}
+/*~ ~~~~~~~~~~~~~~~~~~~~~~~~~~ ~~>
+<~~         Utilities          ~~>
+<~~ ~~~~~~~~~~~~~~~~~~~~~~~~~~ ~*/
+
+.accent-text {
+  color: var(--color-accent);
+}
