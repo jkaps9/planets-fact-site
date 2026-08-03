@@ -42,6 +42,8 @@
   --color-body-text: var(--colors-neutral-0);
   --color-text-on-primary: var(--colors-neutral-0);
 
+  --color-border: var(--colors-neutral-0);
+
   /* Typography */
   --font-heading: var(--font-antonio);
   --font-body: var(--font-spartan);
