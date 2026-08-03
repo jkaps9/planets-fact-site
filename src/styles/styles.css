@@ -96,7 +96,6 @@ body {
   background-color: var(--color-background);
   color: var(--color-body-text);
   font-family: var(--font-body);
-  padding: var(--page-padding);
   /* 5. Improve text rendering */
   -webkit-font-smoothing: antialiased;
 }
@@ -168,6 +167,7 @@ html {
 main {
   margin: 0 auto;
   max-width: var(--content-max-width);
+  padding: var(--page-padding);
 }
 
 a {

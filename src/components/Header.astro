@@ -28,8 +28,10 @@ import NavToggle from "./NavToggle.astro";
   header {
     align-items: stretch;
     background-color: transparent;
+    border-bottom: 1px solid rgb(from var(--color-border) r g b / 0.2);
     display: flex;
     justify-content: space-between;
+    padding-bottom: clamp(1rem, 0.8239rem + 0.7512vw, 1.5rem);
   }
 
   .logo {
@@ -55,6 +57,13 @@ import NavToggle from "./NavToggle.astro";
   }
 
   @media (min-width: 768px) {
+    header {
+      align-items: center;
+      flex-direction: column;
+      gap: clamp(0rem, 4.2857rem + -4.7619vw, 2rem);
+      margin-top: clamp(0rem, 4.2857rem + -4.7619vw, 2rem);
+    }
+
     nav,
     .nav__list {
       align-items: stretch;
@@ -72,6 +81,14 @@ import NavToggle from "./NavToggle.astro";
 
     .nav__item:hover {
       border-color: var(--color-accent);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    header {
+      flex-direction: row;
+      padding-block: 1.5rem;
+      padding-inline: 2rem;
     }
   }
 </style>
