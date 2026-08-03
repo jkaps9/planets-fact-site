@@ -1,5 +1,6 @@
 ---
 import Font from "astro/components/Font.astro";
+import Header from "@components/Header.astro";
 const { pageTitle } = Astro.props;
 ---
 
@@ -31,6 +32,7 @@ const { pageTitle } = Astro.props;
     >
       Click To Skip To Main Content
     </a>
+    <Header />
     <main id="main">
       <slot />
     </main>
