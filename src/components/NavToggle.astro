@@ -26,3 +26,20 @@ import { Icon } from "astro-icon/components";
     });
   }
 </script>
+
+<style>
+  .nav__toggle {
+    opacity: 0.25;
+    transition: opacity 0.3s;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+
+  @media (min-width: 768px) {
+    .nav__toggle {
+      display: none;
+    }
+  }
+</style>
