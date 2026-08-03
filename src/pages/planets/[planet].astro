@@ -1,21 +1,20 @@
 ---
 import PlanetLayout from "@layouts/PlanetLayout.astro";
-export function getStaticPaths() {
-  return [
-    { params: { planet: "mercury" } },
-    { params: { planet: "venus" } },
-    { params: { planet: "earth" } },
-    { params: { planet: "mars" } },
-    { params: { planet: "jupiter" } },
-    { params: { planet: "saturn" } },
-    { params: { planet: "uranus" } },
-    { params: { planet: "neptune" } },
-  ];
+
+import planets from "@data/planets.json";
+
+export async function getStaticPaths() {
+  return planets.map((planet) => {
+    return {
+      params: { planet: planet.name.toLowerCase() },
+      props: { planet },
+    };
+  });
 }
 
-const { planet } = Astro.params;
+const { planet } = Astro.props;
 ---
 
-<PlanetLayout pageTitle={planet}>
-  <h1>{planet}</h1>
+<PlanetLayout pageTitle={planet.name}>
+  <h1>{planet.name}</h1>
 </PlanetLayout>
