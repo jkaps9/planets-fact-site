@@ -1,0 +1,38 @@
+---
+import Font from "astro/components/Font.astro";
+const { pageTitle } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=5.0, minimum-scale=1.0"
+    />
+    <title>{pageTitle}</title>
+    <!-- Fonts -->
+    <Font
+      cssVariable="--font-antonio"
+      preload
+    />
+    <Font
+      cssVariable="--font-spartan"
+      preload
+    />
+  </head>
+  <body>
+    <!-- Screen reader skip main nav -->
+    <a
+      class="skip"
+      aria-label="skip to main content"
+      href="#main"
+    >
+      Click To Skip To Main Content
+    </a>
+    <main id="main">
+      <slot />
+    </main>
+  </body>
+</html>
