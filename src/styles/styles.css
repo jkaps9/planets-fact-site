@@ -99,7 +99,7 @@ body {
   display: flex;
   flex-direction: column;
   font-family: var(--font-body);
-  min-height: 850px;
+  min-height: clamp(53.125rem, 49.2958rem + 16.338vw, 64rem);
   /* 5. Improve text rendering */
   -webkit-font-smoothing: antialiased;
 }
