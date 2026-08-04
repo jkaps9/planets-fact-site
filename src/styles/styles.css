@@ -16,6 +16,7 @@
   --colors-aqua-50: #def4fc;
   --colors-aqua-100: #b1d5e2;
 
+  /* below are unitless scale factors */
   --spacing-0: 0;
   --spacing-050: 4;
   --spacing-075: 6;
@@ -29,7 +30,7 @@
   --spacing-500: 40;
   --spacing-600: 48;
 
-  --corner-radius-0: 0;
+  --corner-radius-0: 0px;
   --corner-radius-full: 100%;
 
   /* Colors */
