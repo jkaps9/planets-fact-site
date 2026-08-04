@@ -156,7 +156,12 @@ if (!geologyImageSrc)
   "use strict";
 
   class TabsManual {
-    constructor(groupNode) {
+    tablistNode: HTMLElement;
+    tabs: HTMLElement[];
+    tabPanels: HTMLElement[];
+    firstTab: HTMLElement | null;
+    lastTab: HTMLElement | null;
+    constructor(groupNode: HTMLElement) {
       this.tablistNode = groupNode;
 
       this.tabs = [];
@@ -165,17 +170,17 @@ if (!geologyImageSrc)
       this.lastTab = null;
 
       this.tabs = Array.from(this.tablistNode.querySelectorAll("[role=tab]"));
-      this.tabpanels = [];
+      this.tabPanels = [];
 
       for (var i = 0; i < this.tabs.length; i += 1) {
         var tab = this.tabs[i];
         var tabpanel = document.getElementById(
-          tab.getAttribute("aria-controls"),
-        );
+          tab.getAttribute("aria-controls")!,
+        ) as HTMLElement;
 
         tab.tabIndex = -1;
         tab.setAttribute("aria-selected", "false");
-        this.tabpanels.push(tabpanel);
+        this.tabPanels.push(tabpanel);
 
         tab.addEventListener("keydown", this.onKeydown.bind(this));
         tab.addEventListener("click", this.onClick.bind(this));
@@ -189,51 +194,51 @@ if (!geologyImageSrc)
       this.setSelectedTab(this.firstTab);
     }
 
-    setSelectedTab(currentTab) {
+    setSelectedTab(currentTab: HTMLElement | null) {
       for (var i = 0; i < this.tabs.length; i += 1) {
         var tab = this.tabs[i];
         if (currentTab === tab) {
           tab.setAttribute("aria-selected", "true");
           tab.removeAttribute("tabindex");
-          this.tabpanels[i].classList.remove("is-hidden");
+          this.tabPanels[i].classList.remove("is-hidden");
         } else {
           tab.setAttribute("aria-selected", "false");
           tab.tabIndex = -1;
-          this.tabpanels[i].classList.add("is-hidden");
+          this.tabPanels[i].classList.add("is-hidden");
         }
       }
     }
 
-    moveFocusToTab(currentTab) {
-      currentTab.focus();
+    moveFocusToTab(currentTab: HTMLElement | null) {
+      currentTab?.focus();
     }
 
-    moveFocusToPreviousTab(currentTab) {
+    moveFocusToPreviousTab(currentTab: HTMLElement | null) {
       var index;
 
       if (currentTab === this.firstTab) {
         this.moveFocusToTab(this.lastTab);
       } else {
-        index = this.tabs.indexOf(currentTab);
+        index = this.tabs.indexOf(currentTab as HTMLElement);
         this.moveFocusToTab(this.tabs[index - 1]);
       }
     }
 
-    moveFocusToNextTab(currentTab) {
+    moveFocusToNextTab(currentTab: HTMLElement | null) {
       var index;
 
       if (currentTab === this.lastTab) {
         this.moveFocusToTab(this.firstTab);
       } else {
-        index = this.tabs.indexOf(currentTab);
+        index = this.tabs.indexOf(currentTab as HTMLElement);
         this.moveFocusToTab(this.tabs[index + 1]);
       }
     }
 
     /* EVENT HANDLERS */
 
-    onKeydown(event) {
-      var tgt = event.currentTarget,
+    onKeydown(event: KeyboardEvent) {
+      var tgt = event.currentTarget as HTMLElement,
         flag = false;
 
       switch (event.key) {
@@ -269,20 +274,21 @@ if (!geologyImageSrc)
 
     // Since this example uses buttons for the tabs, the click onr also is activated
     // with the space and enter keys
-    onClick(event) {
-      this.setSelectedTab(event.currentTarget);
+    onClick(event: MouseEvent) {
+      this.setSelectedTab(event.currentTarget as HTMLElement);
     }
   }
 
   // Initialize tablist
 
   window.addEventListener("load", function () {
-    var tablists = document.querySelectorAll("[role=tablist].manual");
-    for (var i = 0; i < tablists.length; i++) {
-      new TabsManual(tablists[i]);
+    var tabLists = document.querySelectorAll("[role=tablist].manual");
+    for (var i = 0; i < tabLists.length; i++) {
+      new TabsManual(tabLists[i] as unknown as HTMLElement);
     }
   });
 </script>
+
 <style>
   [role="tablist"] {
     border-bottom: 1px solid rgb(from var(--color-border) r g b / 0.1);
