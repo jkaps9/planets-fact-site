@@ -20,21 +20,57 @@ const { planet } = Astro.props;
     <h2 class="sr-only">Planet Statistics</h2>
     <ul class="stats-list">
       <li class="stats-list__item">
-        <h3>Rotation Time</h3>
-        <p class="stats--data">{planet.rotation}</p>
+        <p class="stats__key">Rotation Time</p>
+        <p class="stats__value">{planet.rotation}</p>
       </li>
       <li class="stats-list__item">
-        <h3>Revolution Time</h3>
-        <p class="stats--data">{planet.revolution}</p>
+        <p class="stats__key">Revolution Time</p>
+        <p class="stats__value">{planet.revolution}</p>
       </li>
       <li class="stats-list__item">
-        <h3>Radius</h3>
-        <p class="stats--data">{planet.radius}</p>
+        <p class="stats__key">Radius</p>
+        <p class="stats__value">{planet.radius}</p>
       </li>
       <li class="stats-list__item">
-        <h3>Average Temp.</h3>
-        <p class="stats--data">{planet.temperature}</p>
+        <p class="stats__key">Average Temp.</p>
+        <p class="stats__value">{planet.temperature}</p>
       </li>
     </ul>
   </section>
 </PlanetLayout>
+
+<style>
+  .stats {
+    padding: var(--page-padding);
+  }
+  .stats-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .stats-list__item {
+    align-items: center;
+    border: 1px solid rgb(from var(--color-border) r g b / 0.2);
+    display: flex;
+    justify-content: space-between;
+    padding: 0.75rem 1.5rem;
+  }
+
+  .stats__key {
+    font-size: 0.75rem;
+    letter-spacing: 0.75px;
+    line-height: 2;
+    opacity: 0.5;
+    text-transform: uppercase;
+  }
+
+  .stats__value {
+    font-family: var(--font-heading);
+    font-size: 1.25rem;
+    letter-spacing: -0.75px;
+    line-height: 1.3;
+    text-align: right;
+    text-transform: uppercase;
+  }
+</style>
