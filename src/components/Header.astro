@@ -1,6 +1,7 @@
 ---
 import navData from "@data/navData.json";
 import NavToggle from "./NavToggle.astro";
+import { Icon } from "astro-icon/components";
 ---
 
 <header>
@@ -15,7 +16,9 @@ import NavToggle from "./NavToggle.astro";
       {
         navData.map((navItem) => (
           <li class="nav__item">
+            <div class="color-circle" />
             <a href={navItem.url}>{navItem.key}</a>
+            <Icon name="icon-chevron" />
           </li>
         ))
       }
@@ -44,14 +47,63 @@ import NavToggle from "./NavToggle.astro";
 
   .nav__item {
     text-transform: uppercase;
+    [data-icon] {
+      height: 0;
+      width: 0;
+    }
   }
 
   @media (max-width: 767px) {
+    header {
+      padding: 1rem 1.5rem;
+      position: relative;
+    }
+
+    header:has(.nav__toggle[aria-expanded="true"]) {
+      nav {
+        min-height: 100svh;
+        opacity: 1;
+        visibility: visible;
+      }
+    }
+
+    nav {
+      background-color: var(--color-background);
+      height: 0;
+      left: 0;
+      padding: 1rem 1.5rem;
+      position: absolute;
+      right: 0;
+      top: 101%;
+      transition:
+        opacity 0.3s,
+        transform 0.3s;
+      opacity: 0;
+      visibility: hidden;
+      z-index: 900;
+    }
+
     .nav__item {
+      align-items: center;
+      display: flex;
+      gap: 1.5rem;
       padding-block: 1.25rem;
       border-bottom: 1px solid rgb(from var(--color-border) r g b / 0.1);
       &:last-child {
         border-bottom: none;
+      }
+
+      .color-circle {
+        background-color: var(--color-accent);
+        border-radius: var(--corner-radius-full);
+        height: 1.25rem;
+        width: 1.25rem;
+      }
+
+      [data-icon] {
+        height: 0.5rem;
+        margin-inline-start: auto;
+        width: auto;
       }
     }
   }
