@@ -168,7 +168,6 @@ html {
 main {
   margin: 0 auto;
   max-width: var(--content-max-width);
-  padding: var(--page-padding);
 }
 
 a {

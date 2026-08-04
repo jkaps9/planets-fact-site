@@ -32,7 +32,7 @@ if (!geologyImageSrc)
 ---
 
 <PlanetLayout pageTitle={planet.name}>
-  <PlanetTabs />
+  <PlanetTabs planetName={planet.name.toLowerCase()} />
   <div class="planet__image">
     <div class="overview">
       <Icon

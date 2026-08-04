@@ -1,4 +1,9 @@
+---
+const { planetName } = Astro.props;
+---
+
 <div
+  class={`row manual color-${planetName}`}
   role="tablist"
   aria-labelledby="tablist-1"
 >
@@ -21,7 +26,7 @@
     tabindex="-1"
   >
     <span class="tab-number">02</span>
-    <span class="first-word">Internal</span>
+    <span class="extra-word">Internal</span>
     <span class="focus">Structure</span>
   </button>
   <button
@@ -33,15 +38,39 @@
     tabindex="-1"
   >
     <span class="tab-number">03</span>
-    <span class="first-word"></span>
-    <span class="focus">Geology</span>
+    <span class="focus">Surface</span>
+    <span class="extra-word">Geology</span>
   </button>
 </div>
 
 <style>
+  [role="tablist"] {
+    border-bottom: 1px solid rgb(from var(--color-border) r g b / 0.1);
+    margin: 1.25rem 0 4rem;
+    padding: var(--page-padding);
+  }
+
+  [role="tab"] {
+    border-bottom: 4px solid transparent;
+    color: currentColor;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    line-height: 2.75;
+    opacity: 0.5;
+    text-transform: uppercase;
+
+    &:hover,
+    &:focus,
+    &[aria-="true"] {
+      opacity: 1;
+      border-color: var(--color-accent);
+    }
+  }
+
   @media (max-width: 767px) {
     .tab-number,
-    .first-word {
+    .extra-word {
       height: 0;
       position: absolute;
       visibility: hidden;
