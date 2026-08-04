@@ -16,7 +16,7 @@ import { Icon } from "astro-icon/components";
       {
         navData.map((navItem) => (
           <li class={`nav__item color-${navItem.key.toLowerCase()}`}>
-            <a href={navItem.url}>
+            <a href={`/planets-fact-site${navItem.url}`}>
               <div class="color-circle" />
               {navItem.key}
               <Icon name="icon-chevron" />
