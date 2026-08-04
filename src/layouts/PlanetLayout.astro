@@ -2,6 +2,7 @@
 import Font from "astro/components/Font.astro";
 import Header from "@components/Header.astro";
 import "@styles/styles.css";
+import bgImage from "../icons/background-stars.svg";
 const { pageTitle } = Astro.props;
 ---
 
@@ -24,7 +25,7 @@ const { pageTitle } = Astro.props;
       preload
     />
   </head>
-  <body>
+  <body style={`background-image: url('${bgImage.src}');`}>
     <!-- Screen reader skip main nav -->
     <a
       class="skip"
