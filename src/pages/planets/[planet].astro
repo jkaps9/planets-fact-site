@@ -73,4 +73,20 @@ const { planet } = Astro.props;
     text-align: right;
     text-transform: uppercase;
   }
+
+  @media (min-width: 768px) {
+    .stats {
+      display: flex;
+    }
+    .stats-list {
+      flex: 1;
+      flex-direction: row;
+    }
+
+    .stats-list__item {
+      align-items: flex-start;
+      flex: 1;
+      flex-direction: column;
+    }
+  }
 </style>
