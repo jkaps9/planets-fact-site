@@ -30,6 +30,7 @@
   --spacing-600: 48;
 
   --corner-radius-0: 0;
+  --corner-radius-full: 100%;
 
   /* Colors */
   --color-primary: var(--colors-sky-400);
@@ -216,35 +217,35 @@ h1 {
 <~~    Planet Accent Colors    ~~>
 <~~ ~~~~~~~~~~~~~~~~~~~~~~~~~~ ~*/
 
-#mercury {
+.color-mercury {
   --color-accent: var(--colors-sky-400);
 }
 
-#venus {
+.color-venus {
   --color-accent: var(--colors-amber-400);
 }
 
-#earth {
+.color-earth {
   --color-accent: var(--colors-purple-600);
 }
 
-#mars {
+.color-mars {
   --color-accent: var(--colors-orange-600);
 }
 
-#jupiter {
+.color-jupiter {
   --color-accent: var(--colors-red-500);
 }
 
-#saturn {
+.color-saturn {
   --color-accent: var(--colors-bronze-700);
 }
 
-#uranus {
+.color-uranus {
   --color-accent: var(--colors-teal-400);
 }
 
-#neptune {
+.color-neptune {
   --color-accent: var(--colors-blue-600);
 }
 
