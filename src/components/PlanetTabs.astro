@@ -324,7 +324,7 @@ if (!geologyImageSrc)
   [role="tab"] {
     border-bottom: 4px solid transparent;
     color: currentColor;
-    font-size: 0.75rem;
+    font-size: clamp(0.75rem, 0rem + 1.5625vw, 1rem);
     font-weight: 700;
     letter-spacing: 2px;
     line-height: 2.75;
@@ -356,7 +356,7 @@ if (!geologyImageSrc)
     margin-block-end: auto;
     place-content: center;
     [data-icon] {
-      height: clamp(6.9375rem, 2.9982rem + 16.8075vw, 18.125rem);
+      height: clamp(6.875rem, 0.493rem + 27.23vw, 25rem);
       width: auto;
     }
 
@@ -384,7 +384,7 @@ if (!geologyImageSrc)
   }
 
   .planet__content {
-    font-size: clamp(0.6875rem, 0.6215rem + 0.2817vw, 0.875rem);
+    font-size: clamp(0.875rem, 0.125rem + 1.5625vw, 1.125rem);
     line-height: 1.8;
   }
 
@@ -435,6 +435,8 @@ if (!geologyImageSrc)
       grid-row: 2;
       justify-content: flex-end;
       margin: 0;
+
+      z-index: 100;
     }
 
     [role="tab"] {
@@ -477,8 +479,29 @@ if (!geologyImageSrc)
   }
 
   @media (min-width: 1024px) {
+    [role="tablist"] {
+      min-width: 350px;
+    }
+
     [role="tabpanel"] {
       flex-direction: row;
+      grid-column: 1 / span 2;
+      grid-row: 1 / span 2;
+      justify-content: space-between;
+      width: 100%;
+    }
+
+    .planet__image {
+      align-self: flex-start;
+      margin: 0;
+      transform: translateY(50%);
+    }
+
+    .planet__text {
+      margin-top: 10rem;
+      p {
+        max-width: 30ch;
+      }
     }
   }
 </style>
