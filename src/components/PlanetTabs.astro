@@ -20,139 +20,140 @@ if (!geologyImageSrc)
   );
 ---
 
-<div
-  class={`row manual color-${planet.name.toLowerCase()}`}
-  role="tablist"
-  aria-labelledby="tablist-1"
->
-  <button
-    id="tab-1"
-    type="button"
-    role="tab"
-    aria-selected="true"
-    aria-controls="tabpanel-1"
+<section>
+  <h1 class="sr-only">{planet.name}</h1>
+  <div
+    class={`row manual color-${planet.name.toLowerCase()}`}
+    role="tablist"
+    aria-labelledby="tablist-1"
   >
-    <span class="tab-number">01</span>
-    <p>Overview</p>
-  </button>
-  <button
-    id="tab-2"
-    type="button"
-    role="tab"
-    aria-selected="false"
-    aria-controls="tabpanel-2"
-    tabindex="-1"
-  >
-    <span class="tab-number">02</span>
-    <p>
-      <span class="extra-word">Internal</span>
-      <span>Structure</span>
-    </p>
-  </button>
-  <button
-    id="tab-3"
-    type="button"
-    role="tab"
-    aria-selected="false"
-    aria-controls="tabpanel-3"
-    tabindex="-1"
-  >
-    <span class="tab-number">03</span>
-    <p>
-      <span>Surface</span>
-      <span class="extra-word">Geology</span>
-    </p>
-  </button>
-</div>
+    <button
+      id="tab-1"
+      type="button"
+      role="tab"
+      aria-selected="true"
+      aria-controls="tabpanel-1"
+    >
+      <span class="tab-number">01</span>
+      <p>Overview</p>
+    </button>
+    <button
+      id="tab-2"
+      type="button"
+      role="tab"
+      aria-selected="false"
+      aria-controls="tabpanel-2"
+      tabindex="-1"
+    >
+      <span class="tab-number">02</span>
+      <p>
+        <span class="extra-word">Internal</span>
+        <span>Structure</span>
+      </p>
+    </button>
+    <button
+      id="tab-3"
+      type="button"
+      role="tab"
+      aria-selected="false"
+      aria-controls="tabpanel-3"
+      tabindex="-1"
+    >
+      <span class="tab-number">03</span>
+      <p>
+        <span>Surface</span>
+        <span class="extra-word">Geology</span>
+      </p>
+    </button>
+  </div>
 
-<h1 class="sr-only">{planet.name}</h1>
-
-<div
-  id="tabpanel-1"
-  role="tabpanel"
-  aria-labelledby="tab-1"
->
-  <div class="planet__image">
-    <Icon
-      name={`planet-${planet.name.toLowerCase()}`}
-      aria-hidden="true"
-    />
-  </div>
-  <p class="planet__name">{planet.name}</p>
-  <p class="planet__content">{planet.overview.content}</p>
-  <div class="source">
-    <span>Source:</span>
-    <a href={planet.overview.source}>
-      Wikipedia
-      <Icon
-        name="icon-source"
-        aria-hidden="true"
-        width={12}
-        height={12}
-      />
-    </a>
-  </div>
-</div>
-<div
-  id="tabpanel-2"
-  role="tabpanel"
-  aria-labelledby="tab-2"
->
-  <div class="planet__image">
-    <Icon
-      name={`planet-${planet.name.toLowerCase()}-internal`}
-      aria-hidden="true"
-    />
-  </div>
-  <p class="planet__name">{planet.name}</p>
-  <p class="planet__content">{planet.structure.content}</p>
-  <div class="source">
-    <span>Source:</span>
-    <a href={planet.structure.source}>
-      Wikipedia
-      <Icon
-        name="icon-source"
-        aria-hidden="true"
-        width={12}
-        height={12}
-      />
-    </a>
-  </div>
-</div>
-<div
-  id="tabpanel-3"
-  role="tabpanel"
-  aria-labelledby="tab-3"
->
-  <div class="planet__image">
-    <div class="geology">
+  <div
+    id="tabpanel-1"
+    role="tabpanel"
+    aria-labelledby="tab-1"
+  >
+    <div class="planet__image">
       <Icon
         name={`planet-${planet.name.toLowerCase()}`}
         aria-hidden="true"
       />
-      <Image
-        src={geologyImageSrc()}
-        alt=""
-        aria-hidden="true"
-        class="planet__geology"
-      />
+    </div>
+    <p class="planet__name">{planet.name}</p>
+    <p class="planet__content">{planet.overview.content}</p>
+    <div class="source">
+      <span>Source:</span>
+      <a href={planet.overview.source}>
+        Wikipedia
+        <Icon
+          name="icon-source"
+          aria-hidden="true"
+          width={12}
+          height={12}
+        />
+      </a>
     </div>
   </div>
-  <p class="planet__name">{planet.name}</p>
-  <p class="planet__content">{planet.geology.content}</p>
-  <div class="source">
-    <span>Source:</span>
-    <a href={planet.geology.source}>
-      Wikipedia
+  <div
+    id="tabpanel-2"
+    role="tabpanel"
+    aria-labelledby="tab-2"
+  >
+    <div class="planet__image">
       <Icon
-        name="icon-source"
+        name={`planet-${planet.name.toLowerCase()}-internal`}
         aria-hidden="true"
-        width={12}
-        height={12}
       />
-    </a>
+    </div>
+    <p class="planet__name">{planet.name}</p>
+    <p class="planet__content">{planet.structure.content}</p>
+    <div class="source">
+      <span>Source:</span>
+      <a href={planet.structure.source}>
+        Wikipedia
+        <Icon
+          name="icon-source"
+          aria-hidden="true"
+          width={12}
+          height={12}
+        />
+      </a>
+    </div>
   </div>
-</div>
+  <div
+    id="tabpanel-3"
+    role="tabpanel"
+    aria-labelledby="tab-3"
+  >
+    <div class="planet__image">
+      <div class="geology">
+        <Icon
+          name={`planet-${planet.name.toLowerCase()}`}
+          aria-hidden="true"
+        />
+        <Image
+          src={geologyImageSrc()}
+          alt=""
+          aria-hidden="true"
+          class="planet__geology"
+        />
+      </div>
+    </div>
+    <p class="planet__name">{planet.name}</p>
+    <p class="planet__content">{planet.geology.content}</p>
+    <div class="source">
+      <span>Source:</span>
+      <a href={planet.geology.source}>
+        Wikipedia
+        <Icon
+          name="icon-source"
+          aria-hidden="true"
+          width={12}
+          height={12}
+        />
+      </a>
+    </div>
+  </div>
+</section>
 
 <script>
   /*
