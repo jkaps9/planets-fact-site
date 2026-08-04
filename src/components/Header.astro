@@ -16,7 +16,7 @@ import { Icon } from "astro-icon/components";
       {
         navData.map((navItem) => (
           <li class={`nav__item color-${navItem.key.toLowerCase()}`}>
-            <div class={`color-circle color-${navItem.key.toLowerCase()}`} />
+            <div class="color-circle" />
             <a href={navItem.url}>{navItem.key}</a>
             <Icon name="icon-chevron" />
           </li>
