@@ -137,18 +137,16 @@ if (!geologyImageSrc)
     aria-labelledby="tab-3"
   >
     <div class="planet__image">
-      <div class="geology">
-        <Icon
-          name={`planet-${planet.name.toLowerCase()}`}
-          aria-hidden="true"
-        />
-        <Image
-          src={geologyImageSrc()}
-          alt=""
-          aria-hidden="true"
-          class="planet__geology"
-        />
-      </div>
+      <Icon
+        name={`planet-${planet.name.toLowerCase()}`}
+        aria-hidden="true"
+      />
+      <Image
+        src={geologyImageSrc()}
+        alt=""
+        aria-hidden="true"
+        class="planet__geology"
+      />
     </div>
     <div class="planet__text">
       <p class="planet__name">{planet.name}</p>
@@ -230,11 +228,11 @@ if (!geologyImageSrc)
         if (currentTab === tab) {
           tab.setAttribute("aria-selected", "true");
           tab.removeAttribute("tabindex");
-          this.tabPanels[i].classList.remove("is-hidden");
+          this.tabPanels[i].classList.remove("sr-only");
         } else {
           tab.setAttribute("aria-selected", "false");
           tab.tabIndex = -1;
-          this.tabPanels[i].classList.add("is-hidden");
+          this.tabPanels[i].classList.add("sr-only");
         }
       }
     }
@@ -356,33 +354,28 @@ if (!geologyImageSrc)
     display: flex;
     flex: 1;
     flex-direction: column;
+    justify-content: space-between;
     padding: var(--page-padding);
     text-align: center;
-    &.is-hidden {
-      display: none;
-    }
   }
 
   .planet__image {
     display: grid;
-    margin-block-end: auto;
     place-content: center;
+    position: relative;
+
     [data-icon] {
       height: clamp(6.875rem, 0.493rem + 27.23vw, 25rem);
       width: auto;
     }
 
-    .geology {
-      position: relative;
-
-      img {
-        height: clamp(6.25rem, 4.0713rem + 9.2958vw, 12.4375rem);
-        position: absolute;
-        top: 75%;
-        left: 50%;
-        transform: translate(-50%, 0%);
-        width: auto;
-      }
+    .planet__geology {
+      height: clamp(6.25rem, 4.0713rem + 9.2958vw, 12.4375rem);
+      position: absolute;
+      top: 75%;
+      left: 50%;
+      transform: translate(-50%, 0%);
+      width: auto;
     }
   }
 
