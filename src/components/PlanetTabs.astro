@@ -302,6 +302,13 @@ if (!geologyImageSrc)
 </script>
 
 <style>
+  section {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    margin-block-end: 1.5rem;
+  }
+
   [role="tablist"] {
     border-bottom: 1px solid rgb(from var(--color-border) r g b / 0.1);
     margin: 1.25rem 0 4rem;
@@ -329,6 +336,7 @@ if (!geologyImageSrc)
   [role="tabpanel"] {
     align-items: center;
     display: flex;
+    flex: 1;
     flex-direction: column;
     padding: var(--page-padding);
     text-align: center;
