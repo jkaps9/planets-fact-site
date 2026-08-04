@@ -1,9 +1,27 @@
 ---
-const { planetName } = Astro.props;
+import { Image } from "astro:assets";
+import type { ImageMetadata } from "astro";
+import { Icon } from "astro-icon/components";
+
+const { planet } = Astro.props;
+
+const images = import.meta.glob<{ default: ImageMetadata }>(
+  "/src/assets/images/*.{jpeg,jpg,png,gif,webp,svg}",
+);
+const getImagePath = (jsonPath: string) => {
+  const filename = jsonPath.split("/").pop();
+  return `/src/assets/images/${filename}`;
+};
+const geologyImageSrc = images[getImagePath(planet.images.geology)];
+
+if (!geologyImageSrc)
+  throw new Error(
+    `Could not find planet image at ${getImagePath(planet.images.geology)}`,
+  );
 ---
 
 <div
-  class={`row manual color-${planetName}`}
+  class={`row manual color-${planet.name.toLowerCase()}`}
   role="tablist"
   aria-labelledby="tablist-1"
 >
@@ -43,6 +61,83 @@ const { planetName } = Astro.props;
   </button>
 </div>
 
+<h1>{planet.name}</h1>
+
+<div
+  id="tabpanel-1"
+  role="tabpanel"
+  aria-labelledby="tab-1"
+>
+  <div class="planet__image">
+    <Icon
+      name={`planet-${planet.name.toLowerCase()}`}
+      aria-hidden="true"
+    />
+  </div>
+  <p>{planet.overview.content}</p>
+  <p>
+    Source: <a href={planet.overview.source}>
+      Wikipedia
+      <Icon
+        name="icon-source"
+        aria-hidden="true"
+      />
+    </a>
+  </p>
+</div>
+<div
+  id="tabpanel-2"
+  role="tabpanel"
+  aria-labelledby="tab-2"
+>
+  <div class="planet__image">
+    <Icon
+      name={`planet-${planet.name.toLowerCase()}-internal`}
+      aria-hidden="true"
+    />
+  </div>
+  <p>{planet.structure.content}</p>
+  <p>
+    Source: <a href={planet.structure.source}>
+      Wikipedia
+      <Icon
+        name="icon-source"
+        aria-hidden="true"
+      />
+    </a>
+  </p>
+</div>
+<div
+  id="tabpanel-3"
+  role="tabpanel"
+  aria-labelledby="tab-3"
+>
+  <div class="planet__image">
+    <div class="geology">
+      <Icon
+        name={`planet-${planet.name.toLowerCase()}`}
+        aria-hidden="true"
+      />
+      <Image
+        src={geologyImageSrc()}
+        alt=""
+        aria-hidden="true"
+        class="planet__geology"
+      />
+    </div>
+  </div>
+  <p>{planet.geology.content}</p>
+  <p>
+    Source: <a href={planet.geology.source}>
+      Wikipedia
+      <Icon
+        name="icon-source"
+        aria-hidden="true"
+      />
+    </a>
+  </p>
+</div>
+
 <style>
   [role="tablist"] {
     border-bottom: 1px solid rgb(from var(--color-border) r g b / 0.1);
@@ -62,9 +157,37 @@ const { planetName } = Astro.props;
 
     &:hover,
     &:focus,
-    &[aria-="true"] {
+    &[aria-selected="true"] {
       opacity: 1;
       border-color: var(--color-accent);
+    }
+  }
+
+  [role="tabpanel"] {
+    &.is-hidden {
+      display: none;
+    }
+  }
+
+  .planet__image {
+    display: grid;
+    place-content: center;
+    [data-icon] {
+      height: clamp(6.9375rem, 2.9982rem + 16.8075vw, 18.125rem);
+      width: auto;
+    }
+
+    .geology {
+      position: relative;
+
+      img {
+        height: clamp(6.25rem, 4.0713rem + 9.2958vw, 12.4375rem);
+        position: absolute;
+        top: 75%;
+        left: 50%;
+        transform: translate(-50%, 0%);
+        width: auto;
+      }
     }
   }
 
