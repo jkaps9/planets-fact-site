@@ -78,19 +78,21 @@ if (!geologyImageSrc)
         aria-hidden="true"
       />
     </div>
-    <p class="planet__name">{planet.name}</p>
-    <p class="planet__content">{planet.overview.content}</p>
-    <div class="source">
-      <span>Source:</span>
-      <a href={planet.overview.source}>
-        Wikipedia
-        <Icon
-          name="icon-source"
-          aria-hidden="true"
-          width={12}
-          height={12}
-        />
-      </a>
+    <div class="planet__text">
+      <p class="planet__name">{planet.name}</p>
+      <p class="planet__content">{planet.overview.content}</p>
+      <div class="source">
+        <span>Source:</span>
+        <a href={planet.overview.source}>
+          Wikipedia
+          <Icon
+            name="icon-source"
+            aria-hidden="true"
+            width={12}
+            height={12}
+          />
+        </a>
+      </div>
     </div>
   </div>
   <div
@@ -104,19 +106,21 @@ if (!geologyImageSrc)
         aria-hidden="true"
       />
     </div>
-    <p class="planet__name">{planet.name}</p>
-    <p class="planet__content">{planet.structure.content}</p>
-    <div class="source">
-      <span>Source:</span>
-      <a href={planet.structure.source}>
-        Wikipedia
-        <Icon
-          name="icon-source"
-          aria-hidden="true"
-          width={12}
-          height={12}
-        />
-      </a>
+    <div class="planet__text">
+      <p class="planet__name">{planet.name}</p>
+      <p class="planet__content">{planet.structure.content}</p>
+      <div class="source">
+        <span>Source:</span>
+        <a href={planet.structure.source}>
+          Wikipedia
+          <Icon
+            name="icon-source"
+            aria-hidden="true"
+            width={12}
+            height={12}
+          />
+        </a>
+      </div>
     </div>
   </div>
   <div
@@ -138,19 +142,21 @@ if (!geologyImageSrc)
         />
       </div>
     </div>
-    <p class="planet__name">{planet.name}</p>
-    <p class="planet__content">{planet.geology.content}</p>
-    <div class="source">
-      <span>Source:</span>
-      <a href={planet.geology.source}>
-        Wikipedia
-        <Icon
-          name="icon-source"
-          aria-hidden="true"
-          width={12}
-          height={12}
-        />
-      </a>
+    <div class="planet__text">
+      <p class="planet__name">{planet.name}</p>
+      <p class="planet__content">{planet.geology.content}</p>
+      <div class="source">
+        <span>Source:</span>
+        <a href={planet.geology.source}>
+          Wikipedia
+          <Icon
+            name="icon-source"
+            aria-hidden="true"
+            width={12}
+            height={12}
+          />
+        </a>
+      </div>
     </div>
   </div>
 </section>
@@ -409,6 +415,19 @@ if (!geologyImageSrc)
       height: 0;
       position: absolute;
       visibility: hidden;
+    }
+  }
+
+  @media (min-width: 768px) {
+    section {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    [role="tabpanel"] {
+      align-items: flex-start;
+      flex-direction: row;
+      text-align: start;
     }
   }
 </style>
