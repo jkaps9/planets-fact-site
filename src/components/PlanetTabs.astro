@@ -78,17 +78,20 @@ if (!geologyImageSrc)
       aria-hidden="true"
     />
   </div>
-
-  <p>{planet.overview.content}</p>
-  <p>
-    Source: <a href={planet.overview.source}>
+  <p class="planet__name">{planet.name}</p>
+  <p class="planet__content">{planet.overview.content}</p>
+  <div class="source">
+    <span>Source:</span>
+    <a href={planet.overview.source}>
       Wikipedia
       <Icon
         name="icon-source"
         aria-hidden="true"
+        width={12}
+        height={12}
       />
     </a>
-  </p>
+  </div>
 </div>
 <div
   id="tabpanel-2"
@@ -101,16 +104,20 @@ if (!geologyImageSrc)
       aria-hidden="true"
     />
   </div>
-  <p>{planet.structure.content}</p>
-  <p>
-    Source: <a href={planet.structure.source}>
+  <p class="planet__name">{planet.name}</p>
+  <p class="planet__content">{planet.structure.content}</p>
+  <div class="source">
+    <span>Source:</span>
+    <a href={planet.structure.source}>
       Wikipedia
       <Icon
         name="icon-source"
         aria-hidden="true"
+        width={12}
+        height={12}
       />
     </a>
-  </p>
+  </div>
 </div>
 <div
   id="tabpanel-3"
@@ -131,16 +138,20 @@ if (!geologyImageSrc)
       />
     </div>
   </div>
-  <p>{planet.geology.content}</p>
-  <p>
-    Source: <a href={planet.geology.source}>
+  <p class="planet__name">{planet.name}</p>
+  <p class="planet__content">{planet.geology.content}</p>
+  <div class="source">
+    <span>Source:</span>
+    <a href={planet.geology.source}>
       Wikipedia
       <Icon
         name="icon-source"
         aria-hidden="true"
+        width={12}
+        height={12}
       />
     </a>
-  </p>
+  </div>
 </div>
 
 <script>
@@ -315,6 +326,11 @@ if (!geologyImageSrc)
   }
 
   [role="tabpanel"] {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    padding: var(--page-padding);
+    text-align: center;
     &.is-hidden {
       display: none;
     }
@@ -322,6 +338,7 @@ if (!geologyImageSrc)
 
   .planet__image {
     display: grid;
+    margin-block-end: auto;
     place-content: center;
     [data-icon] {
       height: clamp(6.9375rem, 2.9982rem + 16.8075vw, 18.125rem);
@@ -338,6 +355,41 @@ if (!geologyImageSrc)
         left: 50%;
         transform: translate(-50%, 0%);
         width: auto;
+      }
+    }
+  }
+
+  .planet__name {
+    font-family: var(--font-heading);
+    font-size: clamp(2.5rem, 1.6197rem + 3.7559vw, 5rem);
+    letter-spacing: clamp(0rem, 0.1268rem + -0.1408vw, 0.0938rem);
+    line-height: 1.3;
+    margin-block-end: 1rem;
+    text-transform: uppercase;
+  }
+
+  .planet__content {
+    font-size: clamp(0.6875rem, 0.6215rem + 0.2817vw, 0.875rem);
+    line-height: 1.8;
+  }
+
+  .source {
+    align-items: center;
+    display: flex;
+    gap: 0.25rem;
+    margin-block-start: 2rem;
+    span {
+      opacity: 0.5;
+    }
+    a {
+      align-items: center;
+      display: flex;
+      gap: 0.25rem;
+      opacity: 0.5;
+      text-decoration: underline;
+
+      &:hover {
+        opacity: 1;
       }
     }
   }
