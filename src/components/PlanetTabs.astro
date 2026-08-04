@@ -1,15 +1,50 @@
-<div class="planet__tabs">
-  <ul class="tabs-list">
-    <li class="tabs-list__item">
-      <span class="tab-number">01</span><p class="tab-text">Overview</p>
-    </li>
-    <li class="tabs-list__item">
-      <span class="tab-number">02</span><p class="tab-text">
-        Internal Structure
-      </p>
-    </li>
-    <li class="tabs-list__item">
-      <span class="tab-number">03</span><p class="tab-text">Surface Geology</p>
-    </li>
-  </ul>
+<div
+  role="tablist"
+  aria-labelledby="tablist-1"
+>
+  <button
+    id="tab-1"
+    type="button"
+    role="tab"
+    aria-selected="true"
+    aria-controls="tabpanel-1"
+  >
+    <span class="tab-number">01</span>
+    <span class="focus">Overview</span>
+  </button>
+  <button
+    id="tab-2"
+    type="button"
+    role="tab"
+    aria-selected="false"
+    aria-controls="tabpanel-2"
+    tabindex="-1"
+  >
+    <span class="tab-number">02</span>
+    <span class="first-word">Internal</span>
+    <span class="focus">Structure</span>
+  </button>
+  <button
+    id="tab-3"
+    type="button"
+    role="tab"
+    aria-selected="false"
+    aria-controls="tabpanel-3"
+    tabindex="-1"
+  >
+    <span class="tab-number">03</span>
+    <span class="first-word"></span>
+    <span class="focus">Geology</span>
+  </button>
 </div>
+
+<style>
+  @media (max-width: 767px) {
+    .tab-number,
+    .first-word {
+      height: 0;
+      position: absolute;
+      visibility: hidden;
+    }
+  }
+</style>
