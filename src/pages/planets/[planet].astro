@@ -38,27 +38,3 @@ const { planet } = Astro.props;
     </ul>
   </section>
 </PlanetLayout>
-
-<style>
-  .planet__image {
-    display: grid;
-    place-content: center;
-    [data-icon] {
-      height: clamp(6.9375rem, 2.9982rem + 16.8075vw, 18.125rem);
-      width: auto;
-    }
-
-    .geology {
-      position: relative;
-
-      img {
-        height: clamp(6.25rem, 4.0713rem + 9.2958vw, 12.4375rem);
-        position: absolute;
-        top: 75%;
-        left: 50%;
-        transform: translate(-50%, 0%);
-        width: auto;
-      }
-    }
-  }
-</style>
