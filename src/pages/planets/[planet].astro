@@ -4,7 +4,7 @@ import { Image } from "astro:assets";
 import type { ImageMetadata } from "astro";
 import { Icon } from "astro-icon/components";
 import planets from "@data/planets.json";
-
+import PlanetTabs from "@components/PlanetTabs.astro";
 export async function getStaticPaths() {
   return planets.map((planet) => {
     return {
@@ -32,23 +32,7 @@ if (!geologyImageSrc)
 ---
 
 <PlanetLayout pageTitle={planet.name}>
-  <div class="planet__tabs">
-    <ul class="tabs-list">
-      <li class="tabs-list__item">
-        <span class="tab-number">01</span><p class="tab-text">Overview</p>
-      </li>
-      <li class="tabs-list__item">
-        <span class="tab-number">02</span><p class="tab-text">
-          Internal Structure
-        </p>
-      </li>
-      <li class="tabs-list__item">
-        <span class="tab-number">03</span><p class="tab-text">
-          Surface Geology
-        </p>
-      </li>
-    </ul>
-  </div>
+  <PlanetTabs />
   <div class="planet__image">
     <div class="overview">
       <Icon
