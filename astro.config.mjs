@@ -4,6 +4,8 @@ import icon from "astro-icon";
 
 // https://astro.build/config
 export default defineConfig({
+  site: "https://jkaps9.github.io",
+  base: "/planets-fact-site",
   redirects: { "/": "/planets/mercury" },
   fonts: [
     {
